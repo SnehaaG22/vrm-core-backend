@@ -156,23 +156,6 @@ docker-compose exec web python manage.py shell
 
 docker-compose run web pytest
 
-# Test API Endpoints
-
-Get JWT Token (All Users)
-
-# Admin
-curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"admin@demo.com","password":"admin123"}'
-
-# Reviewer
-curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"reviewer@demo.com","password":"reviewer123"}'
-
-# Requester
-curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"requester@demo.com","password":"requester123"}'
-
-# Vendor
-curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"vendor_1@techcorpsolutions","password":"vendor123"}'
-
-
 # All Test User Credentials:
 
 Role-> Admin 	  Username->admin@demo.com 	Email->admin@demo.com	Password->admin123
