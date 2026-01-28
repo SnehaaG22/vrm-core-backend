@@ -24,7 +24,7 @@ Audit logs
 
 Dockerized infrastructure
 
-#Tech Stack
+# Tech Stack
 
 Python 3.11
 
@@ -100,32 +100,6 @@ celery-beat → Scheduled jobs
 
 minio → Evidence file storage
 
-#Test Credentials (Seeded)
-
-**Admin**
-
-email: admin@demo.com
-
-password: admin123
-
-**Reviewer**
-
-email: reviewer@demo.com
-
-password: reviewer123
-
-**Requester**
-
-email: requester@demo.com
-
-password: requester123
-
-**Vendor User**
-
-email: vendor@demo.com
-
-password: vendor123
-
 # Common Docker Commands
 
 Check Status
@@ -182,41 +156,35 @@ docker-compose exec web python manage.py shell
 
 docker-compose run web pytest
 
-# Database
+# Test API Endpoints
 
-Access psql
+Get JWT Token (All Users)
 
-docker-compose exec db psql -U vrm_user -d vrm_db
+# Admin
+curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"admin@demo.com","password":"admin123"}'
 
-Backup
+# Reviewer
+curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"reviewer@demo.com","password":"reviewer123"}'
 
-docker-compose exec db pg_dump -U vrm_user vrm_db > backup.sql
+# Requester
+curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"requester@demo.com","password":"requester123"}'
 
-Restore
+# Vendor
+curl.exe -X POST http://localhost:8000/api/token/ -H "Content-Type: application/json" -d '{"username":"vendor_1@techcorpsolutions","password":"vendor123"}'
 
-cat backup.sql | docker-compose exec -T db psql -U vrm_user -d vrm_db
 
-# Celery & Background Jobs
+# All Test User Credentials:
 
-Workers
+Role-> Admin 	  Username->admin@demo.com 	Email->admin@demo.com	Password->admin123
 
-docker-compose logs -f celery-worker
+Role-> Reviewer	  Username->reviewer@demo.com  Email->reviewer@demo.com	 Password->reviewer123
 
-Beat Scheduler
+Role-> Requester	  Username->requester@demo.com	 Email->requester@demo.com	 Password->requester123
 
-docker-compose logs -f celery-beat
+Role-> Vendor 1  Username->vendor_1@techcorpsolutions	 Email->contact@techcorp.com	 Password->vendor123
 
-Redis CLI
+Role-> Vendor 2  Username->vendor_2@cloudservicesinc	 Email->contact@cloudservices.com	 Password->vendor123
 
-docker-compose exec redis redis-cli
-
-**Implemented Jobs**
-
-Evidence expiry reminders (30 / 15 / 7 days)
-
-Vendor renewal reminders
-
-Optional assessment due reminders
 
 # MinIO (Evidence Storage)
 
