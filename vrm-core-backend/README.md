@@ -8,7 +8,7 @@
 
 # Vulnerability & Third-Party Risk Management System (MVP)
 
-# Production-ready Django REST backend for VRM / TPRM with:
+**Production-ready Django REST backend for VRM / TPRM with:**
 
 Multi-tenant architecture (org isolation)
 
@@ -54,35 +54,41 @@ Create env file:
 
 cp .env.example .env
 
-3. Start everything
+3. Build Docker Images (First Time Only)
+
+ docker-compose build --no-cache
+
+4. Start All Services
    
 docker-compose up -d
 
-4. Run migrations
+5.then check service
+
+docker-compose ps
+
+6. Run Database Migrations
    
 docker-compose run web python manage.py migrate
 
-5. Seed demo data
-   
-docker-compose run web python manage.py seed_demo_data
+7. Seed demo data
 
+docker-compose run web python manage.py seed_demo_data
+   
 **Backend ready.**
 
 # Service URLs
 
-Django API-	http://localhost:8000
+Django Admin: 	http://localhost:8000/admin
 
-Swagger-	http://localhost:8000/api/schema/swagger-ui/
+Login: admin@demo.com / admin123
 
-MinIO Console-	http://localhost:9001
+MinIO File Storage:  http://localhost:9001 
 
-PostgreSQL-	localhost:5432
-
-Redis-	localhost:6379
+Login: minioadmin / minioadmin 
 
 # Services in Docker Compose
 
-web → Django API
+web → Django 
 
 db → PostgreSQL
 
@@ -122,6 +128,14 @@ password: vendor123
 
 # Common Docker Commands
 
+Check Status
+
+docker-compose ps
+
+View Logs
+
+docker-compose logs -f web
+
 Start
 
 docker-compose up -d
@@ -134,17 +148,25 @@ Reset DB
 
 docker-compose down -v
 
-Rebuild
+Restart Services
 
-docker-compose build --no-cache
+docker-compose restart
 
-Logs
+Access Django Shell
 
-docker-compose logs -f
+docker-compose exec web python manage.py shell
 
-docker-compose logs -f web
+Run Custom Commands
 
-docker-compose logs -f celery-worker
+docker-compose exec web python manage.py <command>
+
+View Database Logs
+
+docker-compose logs db
+
+View Celery Task Logs
+
+docker-compose logs celery-worker
 
 # Django Commands
 
