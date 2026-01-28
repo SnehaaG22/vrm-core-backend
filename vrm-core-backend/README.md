@@ -216,7 +216,7 @@ MINIO_SECRET_KEY=minioadmin
 
 MINIO_BUCKET=evidence
 
-**#Seeded Demo Data**
+# Seeded Demo Data
 
 Includes:
 
@@ -234,7 +234,7 @@ Evidence entries with expiry
 
 1 remediation scenario
 
-**#MVP Status**
+# MVP Status
 
 Docker infra ready
 
