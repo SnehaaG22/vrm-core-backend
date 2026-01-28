@@ -227,8 +227,6 @@ MinIO configured
 
 Seed data available
 
-Swagger enabled
-
 JWT auth active
 
 ALLOWED_HOSTS=*
