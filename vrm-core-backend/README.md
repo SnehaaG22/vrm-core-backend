@@ -6,7 +6,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://www.docker.com/)
 
-# Vulnerability & Third-Party Risk Management System (MVP)
+**Vulnerability & Third-Party Risk Management System (MVP)**
 
 **Production-ready Django REST backend for VRM / TPRM with:**
 
@@ -56,7 +56,7 @@ cp .env.example .env
 
 3. Build Docker Images (First Time Only)
 
- docker-compose build --no-cache
+docker-compose build --no-cache
 
 4. Start All Services
    
@@ -186,23 +186,7 @@ Role-> Vendor 1  Username->vendor_1@techcorpsolutions	 Email->contact@techcorp.c
 Role-> Vendor 2  Username->vendor_2@cloudservicesinc	 Email->contact@cloudservices.com	 Password->vendor123
 
 
-# MinIO (Evidence Storage)
-
-Console:
-
-http://localhost:9001
-
-Credentials (from .env):
-
-MINIO_ROOT_USER
-
-MINIO_ROOT_PASSWORD
-
-Default bucket:
-
-evidence
-
-Environment Variables (.env.example)
+# Environment Variables (.env.example)
 
 DJANGO_SECRET_KEY=changeme 
 
@@ -232,7 +216,7 @@ MINIO_SECRET_KEY=minioadmin
 
 MINIO_BUCKET=evidence
 
-# Seeded Demo Data
+**#Seeded Demo Data**
 
 Includes:
 
@@ -250,7 +234,7 @@ Evidence entries with expiry
 
 1 remediation scenario
 
-**MVP Status**
+**#MVP Status**
 
 Docker infra ready
 
